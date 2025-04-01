@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    height: 8vh;
+    margin: auto;
+    padding: 2rem;
+}
+
+.navbar > ul {
+    display: flex;
+    flex: 1 1 40rem; 
+    list-style: none;
+}
+
+.navbar > ul :hover{
+    color: lightgray;
+}
+
+.navbar-item{
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    justify-content: space-between;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    margin-left: 2em;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.navbar-right > li {
+    margin-left: 3em;
+}

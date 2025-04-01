@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paris{% endblock %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('app_versus_new') }}">Créer un nouveau Pari !</a>
+    {% endif %}
+
+    <h1>Liste des Paris</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Equipe 1<th>
+                <th>Cote Equipe 1</th>
+                <th>Equipe 2<th>
+                <th>Cote Equipe 2</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for versu in versuses %}
+            <tr>
+                <td>{{ versu.id }}</td>
+                <td>{{ versu.team1.teamname }}</td>
+                <td>{{ versu.rateTeam1 }}</td>
+                <td>{{ versu.team2.teamname }}</td>
+                <td>{{ versu.rateTeam2 }}</td>
+                <td>{{ versu.description }}</td>
+                <td>{{ versu.date ? versu.date|date('Y-m-d H:i:s') : '' }}</td>
+                
+                    <td>
+                        <a href="{{ path('app_versus_show', {'id': versu.id}) }}">show</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            {% if not versu.winner %}
+                                <a href="{{ path('app_versus_edit', {'id': versu.id}) }}">edit</a>
+                                <a href="{{ path('app_versus_valid', {'id': versu.id}) }}">Valider Pari</a>
+                            {% endif %}
+                        {% endif %}
+                    </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Versus{% endblock %}
+
+{% block body %}
+    <h1>Edit Versus</h1>
+
+    {{ include('versus/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_versus_index') }}">back to list</a>
+
+    {{ include('versus/_delete_form.html.twig') }}
+{% endblock %}

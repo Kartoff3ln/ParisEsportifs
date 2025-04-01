@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {% if is_granted("ROLE_ADMIN")%}
+        <div class="example-wrapper">
+            <h1>Admin</h1>    
+
+        </div>
+    {% endif %}
+
+    {% if is_granted("ROLE_MODERATOR") and not is_granted("ROLE_ADMIN")%}
+        <div class="example-wrapper">
+            <h1>Moderator</h1>    
+
+        </div>
+    {% endif %}
+
+    <div class="wrapper"> 
+        <div class="text">Text</div>
+        <div class="paris">
+            <div class="paris1">Prochain Paris</div>
+            <div class="paris2">Paris</div>
+            <div class="paris3">Paris</div>
+            <div class="paris4">Paris</div>
+        </div>
+        <div class="tchat">Tchat</div>
+        <div class="jeux">
+            <div class="jeux0">Jeux0</div>
+            <div class="jeux1">
+                <img src="{{ asset('images/game/cs2.jpg') }}" alt="Counter Strike 2">
+            </div>
+            <div class="jeux2">
+                
+            </div>
+            <div class="jeux3">
+                
+            </div>
+            <div class="jeux4">
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

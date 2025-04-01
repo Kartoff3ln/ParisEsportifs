@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Versus{% endblock %}
+
+{% block body %}
+    <h1>Versus</h1>
+
+    <table class="table">
+        <tbody>
+            {% if is_granted("ROLE_ADMIN") %}
+            <tr>
+                <th>Id</th>
+                <td>{{ versu.id }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th>Description</th>
+                <td>{{ versu.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ versu.date ? versu.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Equipe 1</th>
+                <td>
+                    {{ versu.team1.teamname }}
+                    <a href="{{ path('app_versus_valid_bet', {'id': versu.id, 'team': 'team1'}) }}">Validez</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Rate_team1</th>
+                <td>{{ versu.rateTeam1 }}</td>
+            </tr>
+            <tr>
+                <th>Equipe 2</th>
+                <td>
+                    {{ versu.team2.teamname }}
+                    <a href="{{ path('app_versus_valid_bet', {'id': versu.id, 'team': 'team2'}) }}">Validez</a>
+                </td>
+            </tr>
+            <tr>
+                <th>Rate_team2</th>
+                <td>{{ versu.rateTeam2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_versus_index') }}">back to list</a>
+{% endblock %}

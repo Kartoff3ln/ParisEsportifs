@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    {% if app.user %}
+        <script>
+                window.location.href = '/accueil';
+        </script>
+    {% else %}
+        <h1>Inscription</h1>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.name) }}
+            {{ form_row(registrationForm.firstname) }}
+            {{ form_row(registrationForm.pseudo) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.phone_number) }}
+            {{ form_row(registrationForm.img_file) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+
+            <button type="submit" class="btn">S'inscrire</button>
+        {{ form_end(registrationForm) }}
+
+        <p>Vous avez déjà un compte ?</p>
+        <button class="btn btn-lg btn-primary" type="submit">
+            <a href={{ path('app_login') }}>Connectez-vous !</a>
+        </button>
+
+    {% endif %}
+{% endblock %}

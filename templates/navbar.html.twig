@@ -1,0 +1,32 @@
+<header class="navbar">
+        <a class="navbar-logo" href={{path("app_accueil")}}>
+            <img src="{{ asset('images/Logo1.png') }}" alt="Logo du site" width="55" height="auto">
+        </a>
+        <ul class="navbar-left">
+                <li><a class="navbar-item" href={{path("app_accueil")}}>Acceuil</a></li>
+                <li><a class="navbar-item" href={{path("app_versus_index")}}>Paris</a></li>
+                <li><a class="navbar-item" href={{path("app_contact")}}>Contact</a></li>
+        </ul>
+        <ul class="navbar-right">
+                {% if app.user %}
+                    <li><a class="navbar-item">{{ app.user.balance|number_format(2, ',', '.') }} €</a>
+                    <li>
+                        <a class="navbar-item" href={{path("app_compte")}}>{{ app.user.pseudo }}</a>
+                        <a id="navbar-logo" href={{path("app_login")}}>           
+                        {% if app.user.getImgName %}
+                            <img src="{{ asset('images/user/' ~ app.user.ImgName) }}" alt="Photo de profil" width="25" height="25">
+                        {% else %}
+                            <img src="{{ asset('images/test.png') }}" alt="Photo de profil par défaut" width="25" height="25">
+                        {% endif %}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="navbar-item" href={{path("app_login")}}>Se Connecter</a>
+                        <a class="navbar-logo" href={{path("app_login")}}>
+                            <img src="{{ asset('images/test.png') }}" alt="Navbar Logo" width="25" height="25">
+                        </a>
+                    </li>
+                {% endif %}
+        </ul>
+</header> 

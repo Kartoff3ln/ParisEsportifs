@@ -1,0 +1,99 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    padding: 2em;
+}
+
+.text {
+    border: blue solid 1px;
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.paris {
+    border: rgb(255, 192, 192) solid 1px;
+    grid-column: 1 / 3;
+    grid-row: 2;
+
+    /* Grid Bloc Paris */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(80px, auto);
+}
+
+.tchat {
+    border: purple solid 1px;
+    grid-column: 1 / 2;
+    grid-row: 3 / 7;
+}
+
+.jeux {
+    border: orangered solid 1px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 7;
+
+    /* Grid Bloc Jeux */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+}
+
+/* Grid Bloc Paris */
+.paris1 {
+    border: gold solid 1px;
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+.paris2 {
+    border: gold solid 1px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+}
+.paris3 {
+    border: gold solid 1px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+.paris4 {
+    border: gold solid 1px;
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+}
+/* Fin Grid Bloc Paris */
+
+/* Grid Bloc Jeux */
+.jeux0 {
+    border: black solid 1px;
+    grid-column: 1 / 3;
+    grid-row: 1;
+    grid-auto-rows: 50px;
+}
+.jeux1 {
+    border: black solid 1px;
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+
+.jeux1 img {
+    max-width: 100%;
+    height: auto;
+}
+.jeux2 {
+    border: black solid 1px;
+    grid-column: 2 / 3;
+    grid-row: 2;
+}
+.jeux3 {
+    border: black solid 1px;
+    grid-column: 1 / 2;
+    grid-row: 3;
+}
+.jeux4 {
+    border: black solid 1px;
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+/* Fin Grid Bloc Jeux */
